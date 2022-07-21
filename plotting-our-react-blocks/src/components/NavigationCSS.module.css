@@ -1,0 +1,11 @@
+.navBox {
+    border: 1px solid black;
+    background-color: #6fa8dc;
+    height: 320px;
+    width: 150px;
+    margin: 0px 0px 0px 20px;
+}
+
+.navWrapper{
+    height: 395px;
+}

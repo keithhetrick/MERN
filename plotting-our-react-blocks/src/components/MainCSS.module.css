@@ -1,0 +1,9 @@
+.mainBox {
+    border: 1px solid black;
+    background-color: #e06666;
+    height: 395px;
+    width: 535px;
+    margin: 0px 20px 20px 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
