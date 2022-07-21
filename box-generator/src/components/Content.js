@@ -1,4 +1,5 @@
 import React from 'react'
+import ContentCSS from './ContentCSS.module.css'
 
 const Content = (props) => {
 
@@ -8,7 +9,7 @@ const Content = (props) => {
     <div>
       {
         box.map((color, index) => (
-          <div key={index} style={{ display: 'inline-block', height: '120px', width: '120px', margin: '20px', backgroundColor: color }} >
+          <div className={ContentCSS.boxColor} key={index} style={{ backgroundColor: color }} >
           </div>
         ))
       }
