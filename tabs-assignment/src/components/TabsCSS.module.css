@@ -1,0 +1,56 @@
+.tabsWrapper {
+    display: inline-block;
+    text-align: left;
+    width: 600px;
+}
+
+.tabsList {
+    display: inline-flex;
+    list-style: none;
+    padding: 0;
+}
+
+.tabsList li {
+    border: 1px solid lightgrey;
+    margin: 0px 20px 0px 0px;
+    text-align: center;
+    padding: 0px 20px;
+    width: 75px;
+    cursor: pointer;
+}
+
+.content {
+    border: 1px solid lightgrey;
+    margin: auto;
+    height: 115px;
+    width: 580px;
+    text-align: start;
+    padding: 10px 10px;
+    overflow: scroll;
+}
+
+/* CODE TO BE TWEAKED */
+
+/* .current {
+    background-color: black;
+    color: white;
+} */
+
+/* .shadow {
+    transition-duration: .4s;
+    box-shadow: 5px 5px 5px #999;
+    position: relative;
+    bottom: 5px;
+}
+
+.unClickTab {
+    color: black;
+    background-color: white;
+    border: 1px solid white;
+}
+
+.ClickTab {
+    color: white;
+    background-color: black;
+    border: 1px solid black;
+} */
