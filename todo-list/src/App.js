@@ -48,6 +48,7 @@ const App = () => {
 
   useEffect(() => {
     const data = window.localStorage.getItem('MY_TODOS');
+    console.log(data);
     if ( data !== null ) setToDoArr(JSON.parse(data))
   }, [])
 
@@ -65,11 +66,11 @@ const App = () => {
             value={toDo.text}
             onChange={(e) => setToDo({...toDo, text:e.target.value})} />
           <div>
-            <button class="btn btn-primary col-sm-1 p-2 border">Add</button>
+            <button className="btn btn-primary col-sm-1 p-2 border">Add</button>
           </div>
         </form>
       </section>
-      <section class="position-relative">
+      <section className="position-relative">
         {
           toDoArr.map((thisToDo, i) => (
             <div key={i}>
@@ -78,7 +79,7 @@ const App = () => {
                 type='checkbox' 
                 checked={thisToDo.completed} 
                 onChange={e => handleOnChange(i)} />
-              <button class="btn btn-dark col-sm-1 p-1 border" onClick={deleteToDo}>Delete</button>
+              <button className="btn btn-dark col-sm-1 p-1 border" onClick={() => deleteToDo(i)}>Delete</button>
             </div>
           ))
         }
