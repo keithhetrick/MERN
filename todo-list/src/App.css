@@ -1,3 +1,17 @@
 .App {
   text-align: center;
 }
+
+.input-todo {
+  background-color: rgb(236, 234, 234);
+  border: none;
+  border-radius: 5px;
+  height: 35px;
+  width: 230px;
+  margin: 10px;
+  text-indent: 10px;
+}
+
+.checkbox-input {
+  margin: 10px 10px 0px 10px;
+}

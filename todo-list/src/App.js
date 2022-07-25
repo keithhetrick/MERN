@@ -59,26 +59,26 @@ const App = () => {
     <div className="App">
       <section>
         <form onSubmit={submitHandler}>
-          <input 
+          <input className='input-todo'
             type='text' 
             name='title'
             value={toDo.text}
             onChange={(e) => setToDo({...toDo, text:e.target.value})} />
           <div>
-            <button>Add</button>
+            <button class="btn btn-primary col-sm-1 p-2 border">Add</button>
           </div>
         </form>
       </section>
-      <section >
+      <section class="position-relative">
         {
           toDoArr.map((thisToDo, i) => (
             <div key={i}>
               {handleTask(thisToDo)}
-              <input 
+              <input className='checkbox-input'
                 type='checkbox' 
                 checked={thisToDo.completed} 
                 onChange={e => handleOnChange(i)} />
-              <button onClick={deleteToDo}>Delete</button>
+              <button class="btn btn-dark col-sm-1 p-1 border" onClick={deleteToDo}>Delete</button>
             </div>
           ))
         }
@@ -86,6 +86,5 @@ const App = () => {
     </div>
   );
 }
-
 
 export default App;
