@@ -1,0 +1,9 @@
+.navBarWrapper {
+    background: rebeccapurple;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: flex-end;
+    color: white;
+    font-weight: bold;
+}
