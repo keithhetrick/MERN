@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import UserName from '../contexts/UserName'
+import {UserName} from '../contexts/UserName'
 
 const Wrapper = ({ children }) => {
 

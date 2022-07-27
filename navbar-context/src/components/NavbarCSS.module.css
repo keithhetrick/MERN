@@ -7,3 +7,10 @@
     color: white;
     font-weight: bold;
 }
+
+.userText{
+    color: red;
+    text-transform: uppercase;
+    text-indent: 4px;
+    font-size: larger;
+}

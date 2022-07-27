@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import UserName from '../contexts/UserName';
+import {UserName} from '../contexts/UserName';
 import NavbarCSS from './NavbarCSS.module.css'
 
 const Navbar = () => {
@@ -8,7 +8,11 @@ const Navbar = () => {
 
   return (
     <div className={NavbarCSS.navBarWrapper}>
-      Hi {name}!
+      Hello, 
+        <span className={NavbarCSS.userText}>
+          {name}
+        </span>
+      !
     </div>
   )
 }

@@ -1,7 +1,8 @@
+import React from 'react';
 import './App.css';
-import { FormWrapper } from './components/FormWrapper';
-import { Navbar } from './components/Navbar';
-import { Wrapper } from './components/Wrapper';
+import {FormWrapper} from './components/FormWrapper';
+import {Navbar} from './components/Navbar';
+import {Wrapper } from './components/Wrapper';
 
 function App() {
   return (
