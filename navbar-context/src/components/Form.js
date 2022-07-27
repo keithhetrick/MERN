@@ -1,10 +1,10 @@
 import React, { useContext } from 'react'
-import {UserName} from '../contexts/UserName'
+import UserNameContext from '../contexts/UserNameContext'
 import FormCSS from './FormCSS.module.css'
 
 const Form = () => {
 
-  const { name,setName } = useContext(UserName)
+  const { name,setName } = useContext(UserNameContext)
 
   return (
     <div>
@@ -12,7 +12,7 @@ const Form = () => {
         <label>Your Name:</label>
         <input className={FormCSS.formInput}
           type='text'
-          name='userInput'
+          name='user'
           value={name}
           onChange={e => setName(e.target.value)}
         />
@@ -21,4 +21,4 @@ const Form = () => {
   )
 }
 
-export {Form}
+export default Form

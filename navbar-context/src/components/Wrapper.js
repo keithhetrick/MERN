@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
-import {UserName} from '../contexts/UserName'
+import UserNameContext from '../contexts/UserNameContext'
 
 const Wrapper = ({ children }) => {
 
   const [name, setName] = useState()
 
   return (
-    <UserName.Provider value={{name, setName}}>
+    <UserNameContext.Provider value={{name, setName}}>
       { children }
-    </UserName.Provider>
+    </UserNameContext.Provider>
   )
 }
 
-export {Wrapper}
+export default Wrapper

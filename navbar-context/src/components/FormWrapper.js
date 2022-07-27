@@ -1,5 +1,5 @@
 import React from 'react'
-import {Form} from './Form'
+import Form from './Form'
 
 const FormWrapper = () => {
   return (
@@ -9,4 +9,4 @@ const FormWrapper = () => {
   )
 }
 
-export {FormWrapper}
+export default FormWrapper

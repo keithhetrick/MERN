@@ -1,15 +1,15 @@
 import React, { useContext } from 'react'
-import {UserName} from '../contexts/UserName';
+import UserNameContext from '../contexts/UserNameContext';
 import NavbarCSS from './NavbarCSS.module.css'
 
 const Navbar = () => {
 
-  const { name } = useContext(UserName)
+  const { name } = useContext(UserNameContext)
 
   return (
     <div className={NavbarCSS.navBarWrapper}>
       Hello, 
-        <span className={NavbarCSS.userText}>
+        <span className={NavbarCSS.userName}>
           {name}
         </span>
       !
@@ -17,4 +17,4 @@ const Navbar = () => {
   )
 }
 
-export {Navbar}
+export default Navbar
