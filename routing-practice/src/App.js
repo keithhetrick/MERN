@@ -1,8 +1,7 @@
 import './App.css';
 import { BrowserRouter,Routes,Route } from 'react-router-dom'
 import Home from './components/Home'
-import URLNumber from './components/URLNumber';
-import Hello from './components/Hello';
+import URLText from './components/URLText';
 
 function App() {
 
@@ -11,11 +10,13 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path='/home' element={<Home />} />
-          <Route path='/:num' element={<URLNumber />} />
-          <Route path='/:type' element={<Hello />} />
-          <Route path='/:type/:color/:bgcolor' element={<Home />} />
+          <Route path='/:text' element={<URLText />} />
+          <Route path='/:text/:color/:bgColor' element={<URLText />} />
         </Routes>
       </BrowserRouter>
+      <input type='checkbox' id='darkmode-toggle' />
+      <label for='darkmode-toggle'></label>
+      <div className='backgroundChange'></div>
     </div>
   );
 }
