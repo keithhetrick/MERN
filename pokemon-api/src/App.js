@@ -26,7 +26,7 @@ function App() {
         {
           state.map((pokemon)=>{
             return <div>
-              <li>{pokemon.name}</li>
+              <li className='nameText'>{pokemon.name}</li>
             </div>
           })
         }
