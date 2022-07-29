@@ -38,7 +38,7 @@ input {
 input:checked + label {
   background: #242424;
 }
-input:checked + label::after {
+input:checked + label:after {
   left: 245px;
   transform: translateX(-100%);
   background: linear-gradient(180deg, #777, #3a3a3a);

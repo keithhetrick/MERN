@@ -15,7 +15,7 @@ function App() {
         </Routes>
       </BrowserRouter>
       <input type='checkbox' id='darkmode-toggle' />
-      <label for='darkmode-toggle'></label>
+      <label htmlFor='darkmode-toggle'></label>
       <div className='backgroundChange'></div>
     </div>
   );
