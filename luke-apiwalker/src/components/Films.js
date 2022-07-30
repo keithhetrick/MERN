@@ -2,8 +2,8 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 const Films = (props) => {
-  const { id } = props
-  const [filmData, setFilmData] = useState([])
+  const { id } = props;
+  const [filmData, setFilmData] = useState([]);
 
   useEffect(() => {
     axios
@@ -17,9 +17,9 @@ const Films = (props) => {
 
   return (
     <div>
-      {filmData.map((film)=>
-        <h1>{film.title}</h1>
-      )}
+      {filmData.map((film, i) => (
+        <h1 key={i}>{film.title}</h1>
+      ))}
     </div>
   );
 };
