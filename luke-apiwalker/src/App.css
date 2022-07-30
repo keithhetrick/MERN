@@ -1,0 +1,21 @@
+.App {
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+button, select {
+  margin: 5px 50px 10px 10px;
+}
+
+.id-input {
+  margin: 0px 0px 0px 10px;
+}
+
+/* main {
+
+} */
