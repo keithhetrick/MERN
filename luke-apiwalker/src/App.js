@@ -1,8 +1,6 @@
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import "./App.css";
-
-// component pages
 import Films from "./components/Films";
 import People from "./components/People";
 import Planets from "./components/Planets";
@@ -22,6 +20,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Star Wars API</h1>
       <section>
         <form onSubmit={handleSubmit}>
           <label>Search for: </label>
@@ -44,7 +43,7 @@ function App() {
           <input
             className="id-input"
             type="number"
-            min="0"
+            min="1"
             max="99"
             pattern="[1-9]"
             onInput={(e) => (e.target.value = e.target.value.slice(0, 2))}
@@ -55,12 +54,12 @@ function App() {
       </section>
       <main>
         <Routes>
-          <Route path="/films/:id" element={<Films />} />
-          <Route path="/people/:id" element={<People />} />
-          <Route path="/planets/:id" element={<Planets />} />
-          <Route path="/species/:id" element={<Species />} />
-          <Route path="/starships/:id" element={<Starships />} />
-          <Route path="/vehicles/:id" element={<Vehicles />} />
+          <Route path="/films/:id" element={<Films id={id} />} />
+          <Route path="/people/:id" element={<People id={id} />} />
+          <Route path="/planets/:id" element={<Planets id={id} />} />
+          <Route path="/species/:id" element={<Species id={id} />} />
+          <Route path="/starships/:id" element={<Starships id={id} />} />
+          <Route path="/vehicles/:id" element={<Vehicles id={id} />} />
         </Routes>
       </main>
     </div>
