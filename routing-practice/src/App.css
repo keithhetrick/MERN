@@ -19,6 +19,7 @@ label {
   cursor: pointer;
   transition: 0.3s;
 }
+
 label:after {
   content: '';
   width: 90px;
@@ -30,22 +31,27 @@ label:after {
   border-radius: 90px;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
+
 input {
   width: 0;
   height: 0;
   visibility: hidden;
 }
-input:checked + label {
+
+input:checked+label {
   background: #242424;
 }
-input:checked + label:after {
+
+input:checked+label:after {
   left: 245px;
   transform: translateX(-100%);
   background: linear-gradient(180deg, #777, #3a3a3a);
 }
+
 label:active:after {
   width: 130px;
 }
+
 .backgroundChange {
   width: 100vw;
   height: 100vh;
@@ -54,6 +60,7 @@ label:active:after {
   position: absolute;
   transition: 0.3s;
 }
-input:checked + label + .backgroundChange {
+
+input:checked+label+.backgroundChange {
   background: #242424;
 }
