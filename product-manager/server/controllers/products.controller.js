@@ -10,5 +10,10 @@ module.exports.createProduct = (req, res) => {
   Products.create(req.body)
     .then((product) => res.json(product))
     .catch((err) => res.json(err));
-  console.log(err);
+};
+
+module.exports.getProducts = (req, res) => {
+  Products.get(req.body)
+    .then((product) => res.json(product))
+    .catch((err) => res.json(err));
 };
