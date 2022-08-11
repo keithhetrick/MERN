@@ -5,23 +5,23 @@ const Form = () => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-  const [checked, setChecked] = useState("");
+  // const [checked, setChecked] = useState("");
 
   const submitHandler = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/api/products", {
+      .post("http://localhost:8000/api/products/create", {
         title,
         price,
         description,
-        checked,
+        // checked,
       })
       .then((res) => {
         console.log(res);
-        // console.log(res.data);
-        // setTitle("");
-        // setPrice("");
-        // setDescription("");
+        console.log(res.data);
+        setTitle("");
+        setPrice("");
+        setDescription("");
       })
       .catch((err) => {
         console.log(err);
@@ -44,12 +44,12 @@ const Form = () => {
           <label className="col-sm-2 col-form-label">Description</label>
           <input type="text" onChange={(e) => setDescription(e.target.value)} />
         </div>
+        <button className="btn btn-secondary btn-sm" type="submit">
+          Create
+        </button>
       </form>
-      <input type="checkbox" onChange={(e) => setChecked(e.target.checked)} />
-      <br></br>
-      <button className="btn btn-secondary btn-sm" type="submit">
-        Create
-      </button>
+      {/* <input type="checkbox" onChange={(e) => setChecked(e.target.checked)} /> */}
+      {/* <br></br> */}
     </div>
   );
 };
