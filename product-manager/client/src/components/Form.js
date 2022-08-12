@@ -1,20 +1,21 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [description, setDescription] = useState("");
-  // const [checked, setChecked] = useState("");
+
+  const navigate = useNavigate();
 
   const submitHandler = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/api/products/create", {
+      .post("http://localhost:8000/products/create", {
         title,
         price,
         description,
-        // checked,
       })
       .then((res) => {
         console.log(res);
@@ -22,6 +23,7 @@ const Form = () => {
         setTitle("");
         setPrice("");
         setDescription("");
+        navigate("/products");
       })
       .catch((err) => {
         console.log(err);
@@ -48,8 +50,6 @@ const Form = () => {
           Create
         </button>
       </form>
-      {/* <input type="checkbox" onChange={(e) => setChecked(e.target.checked)} /> */}
-      {/* <br></br> */}
     </div>
   );
 };
