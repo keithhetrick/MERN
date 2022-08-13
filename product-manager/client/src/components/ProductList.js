@@ -28,6 +28,10 @@ const ProductList = () => {
               <Link to={`/products/${product._id}`}>
                 click for more details
               </Link>
+              <br />
+              <button type="submit" className="btn btn-danger">
+                delete
+              </button>
             </div>
           );
         })}

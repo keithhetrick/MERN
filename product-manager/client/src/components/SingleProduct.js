@@ -3,19 +3,21 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 const SingleProduct = () => {
-  const { id } = useParams;
+  const { id } = useParams();
   const [singleProduct, setSingleProduct] = useState({});
 
   useEffect(() => {
     axios
       .get(`http://localhost:8000/products/${id}`)
       .then((res) => {
+        // console.log(res.data);
         setSingleProduct(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
-  });
+    // eslint-disable-next-line
+  }, [id]);
 
   return (
     <div className="col-7 mx-auto mt-5">
