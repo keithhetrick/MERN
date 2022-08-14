@@ -7,7 +7,7 @@ const ProductList = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/products/")
+      .get("http://localhost:8000/products")
       .then((res) => {
         setProducts(res.data);
         console.log(res.data);
@@ -15,7 +15,22 @@ const ProductList = () => {
       .catch((err) => {
         console.log(err);
       });
+    // eslint-disable-next-line
   }, []);
+
+  const deleteHandler = (productID) => {
+    axios
+      .delete(`http://localhost:8000/products/${productID}`)
+      .then((res) => {
+        const newProductList = products.filter(
+          (product, i) => product._id !== productID
+        );
+        setProducts(newProductList);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   return (
     <div className="row">
@@ -29,7 +44,11 @@ const ProductList = () => {
                 click for more details
               </Link>
               <br />
-              <button type="submit" className="btn btn-danger">
+              <button
+                onClick={() => deleteHandler(product._id)}
+                type="submit"
+                className="btn btn-danger"
+              >
                 delete
               </button>
             </div>

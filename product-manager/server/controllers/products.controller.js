@@ -8,13 +8,13 @@ module.exports.index = (req, res) => {
 
 module.exports.createProduct = (req, res) => {
   Products.create(req.body)
-    .then((product) => res.json(product))
+    .then((newProduct) => res.json(newProduct))
     .catch((err) => res.json(err));
 };
 
 module.exports.findAllProducts = (req, res) => {
   Products.find()
-    .then((product) => res.json(product))
+    .then((allProduct) => res.json(allProduct))
     .catch((err) => res.json(err));
 };
 
@@ -22,4 +22,18 @@ module.exports.findOneProduct = (req, res) => {
   Products.findOne({ _id: req.params.id })
     .then((product) => res.json(product))
     .catch((err) => res.json(err));
+};
+
+module.exports.deleteProduct = (req, res) => {
+  Products.deleteOne({ _id: req.params.id })
+    .then((product) => res.json(product))
+    .catch((err) => res.json(err));
+};
+
+module.exports.updateProduct = (req, res) => {
+  Products.updateOne({ _id: req.params.id }),
+    req.body,
+    { new: true, runValidators: true }
+      .then((product) => res.json(product))
+      .catch((err) => res.json(err));
 };
