@@ -26,14 +26,21 @@ module.exports.findOneProduct = (req, res) => {
 
 module.exports.deleteProduct = (req, res) => {
   Products.deleteOne({ _id: req.params.id })
-    .then((product) => res.json(product))
+    .then((deleteProduct) => {
+      res.json(deleteProduct);
+      console.log(deleteProduct);
+    })
     .catch((err) => res.json(err));
 };
 
 module.exports.updateProduct = (req, res) => {
-  Products.updateOne({ _id: req.params.id }),
-    req.body,
-    { new: true, runValidators: true }
-      .then((product) => res.json(product))
-      .catch((err) => res.json(err));
+  Products.updateOne({ _id: req.params.id }, req.body, {
+    new: true,
+    runValidators: true,
+  })
+    .then((updatedProduct) => {
+      res.json(updatedProduct);
+      console.log(updatedProduct);
+    })
+    .catch((err) => res.json(err));
 };

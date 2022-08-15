@@ -48,6 +48,7 @@ const EditProduct = () => {
           <label className="col-sm-2 col-form-label">Title</label>
           <input
             type="text"
+            name="title"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
           />
@@ -56,6 +57,7 @@ const EditProduct = () => {
           <label className="col-sm-2 col-form-label">Price</label>
           <input
             type="number"
+            name="price"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
           />
@@ -64,6 +66,7 @@ const EditProduct = () => {
           <label className="col-sm-2 col-form-label">Description</label>
           <input
             type="text"
+            name="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
           />

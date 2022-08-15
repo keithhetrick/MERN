@@ -38,7 +38,7 @@ const SingleProduct = () => {
       <h1 className="col-6 d-block mx-auto">{singleProduct.title}</h1>
       <h4 className="col-6 d-block mx-auto">{singleProduct.description}</h4>
       <h6 className="col-6 d-block mx-auto">${singleProduct.price}</h6>
-      <Link to={`/editproducts/${singleProduct._id}`}>Edit</Link>
+      <Link to={`/products/edit/${singleProduct._id}`}>Edit</Link>
       <br />
       <button
         onClick={() => deleteHandler(singleProduct._id)}
