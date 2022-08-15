@@ -12,7 +12,7 @@ const Form = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/products/create", {
+      .post("http://localhost:8000/products/", {
         title,
         price,
         description,
