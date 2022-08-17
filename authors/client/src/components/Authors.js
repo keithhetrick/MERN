@@ -5,20 +5,30 @@ const Authors = () => {
   return (
     <div>
       <section>
-        <Link to={"/new"}>Add an author</Link>
-        <p>We have quotes by:</p>
+        <Link
+          style={{ height: "100%", width: "50%", display: "inline-flex" }}
+          to={"/new"}
+        >
+          Add an author
+        </Link>
       </section>
       <section>
         <main>
           <form>
-            <table className="table table-striped">
-              <thead>
+            <table
+              style={{ height: "100%", width: "50%", display: "inline-table" }}
+              className="table"
+            >
+              <caption className="table caption-top">
+                We have quotes by:
+              </caption>
+              <thead className="table table-active table-bordered">
                 <tr>
-                  <th>Author</th>
-                  <th>Actions avaliable</th>
+                  <th scope="col">Author</th>
+                  <th scope="col">Actions avaliable</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className="table-group-divider">
                 <tr>
                   <td></td>
                   <td>
@@ -31,6 +41,7 @@ const Authors = () => {
                       Edit
                     </Link>
                     <button
+                      style={{ marginLeft: 5 }}
                       className="btn btn-secondary"
                       type="submit"
                       name="delete"

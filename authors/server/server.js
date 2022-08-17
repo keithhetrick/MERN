@@ -3,6 +3,9 @@ const cors = require("cors");
 const app = express();
 const PORT = 8000;
 
+// const AuthorsController = require("./routes/author.routes");
+// app.use("/", AuthorsController);
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -10,4 +13,6 @@ app.use(express.urlencoded({ extended: true }));
 require("./config/mongoose.config");
 // require("./routes/author.routes")(app);
 
-app.listen(PORT, () => console.log(`server is running on PORT ${PORT}`));
+app.listen(process.env.PORT || 8000, () =>
+  console.log(`server is running on PORT ${PORT}`)
+);

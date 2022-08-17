@@ -7,7 +7,9 @@ import EditAuthor from "./components/EditAuthor";
 function App() {
   return (
     <div className="App">
-      <h1>Favorite authors</h1>
+      <h1 style={{ height: "100%", width: "50%", display: "inline-flex" }}>
+        Favorite authors
+      </h1>
       <Routes>
         <Route path="/" element={<Authors />} />
         <Route path="/new" element={<NewAuthor />} />
