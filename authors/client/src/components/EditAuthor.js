@@ -1,8 +1,7 @@
-// import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-const NewAuthor = () => {
+const EditAuthor = () => {
   const [author, setAuthor] = useState("");
 
   const navigate = useNavigate();
@@ -24,7 +23,7 @@ const NewAuthor = () => {
     <div>
       <section>
         <Link to={"/"}>Home</Link>
-        <p>Add a new author:</p>
+        <p>Edit this author:</p>
       </section>
       <form>
         <label>Name:</label>
@@ -44,4 +43,4 @@ const NewAuthor = () => {
   );
 };
 
-export default NewAuthor;
+export default EditAuthor;

@@ -5,14 +5,13 @@ const Authors = () => {
   return (
     <div>
       <section>
-        <h1>Favorite authors</h1>
         <Link to={"/new"}>Add an author</Link>
         <p>We have quotes by:</p>
       </section>
       <section>
         <main>
           <form>
-            <table>
+            <table className="table table-striped">
               <thead>
                 <tr>
                   <th>Author</th>
@@ -23,8 +22,19 @@ const Authors = () => {
                 <tr>
                   <td></td>
                   <td>
-                    <Link to={"/edit/:id"}>Edit</Link>
-                    <button type="submit" name="delete">
+                    <Link
+                      className="btn btn-secondary"
+                      href="#"
+                      role="button"
+                      to={"/edit/:id"}
+                    >
+                      Edit
+                    </Link>
+                    <button
+                      className="btn btn-secondary"
+                      type="submit"
+                      name="delete"
+                    >
                       Delete
                     </button>
                   </td>
