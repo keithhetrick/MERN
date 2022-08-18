@@ -3,9 +3,6 @@ const cors = require("cors");
 const app = express();
 const PORT = 8000;
 
-// const AuthorsController = require("./routes/author.routes");
-// app.use("/", AuthorsController);
-
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

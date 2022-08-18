@@ -23,7 +23,7 @@ const Authors = () => {
       .then((res) => {
         console.log(res);
         const currentAuthors = showAuthors.filter(() => {
-          // return author._id !== id;
+          return currentAuthors._id !== id;
         });
         setShowAuthors(currentAuthors);
       })
@@ -33,7 +33,7 @@ const Authors = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <section>
         <Link
           style={{ height: "100%", width: "50%", display: "inline-flex" }}
@@ -89,7 +89,7 @@ const Authors = () => {
                         className="btn btn-secondary"
                         href="#"
                         role="button"
-                        to={"/edit/:id"}
+                        to={`/edit/${author._id}`}
                       >
                         Edit
                       </Link>

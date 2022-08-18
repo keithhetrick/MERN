@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 const NewAuthor = () => {
-  const [author, setAuthor] = useState("");
+  const [name, setName] = useState("");
   const [error, setError] = useState({});
 
   const navigate = useNavigate();
@@ -11,19 +11,21 @@ const NewAuthor = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/", { author })
+      .post("http://localhost:8000/", { name })
       .then((res) => {
+        console.log(res);
         console.log(res.data);
         navigate("/");
       })
       .catch((err) => {
-        console.log(err);
-        setError(err);
+        // console.log(err.response.data);
+        console.log(err.response.data.errors.name.message);
+        setError(err.response.data.errors);
       });
   };
 
   return (
-    <div>
+    <div className="container">
       <section>
         <Link
           style={{ height: "100%", width: "50%", display: "inline-flex" }}
@@ -66,11 +68,11 @@ const NewAuthor = () => {
               <td>
                 <input
                   type="text"
-                  onChange={(e) => setAuthor(e.target.value)}
-                  value={author}
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
+              {error.name ? <p>{error.name.message}</p> : null}
               </td>
-              {error.author ? <p>{error.author.message}</p> : null}
             </tr>
             <tr>
               <td>
@@ -83,15 +85,13 @@ const NewAuthor = () => {
                 >
                   Cancel
                 </Link>
-                <Link
+                <button
                   style={{ marginLeft: 5 }}
                   className="btn btn-primary"
-                  href="#"
-                  role="button"
-                  to={"/"}
+                  type="submit"
                 >
                   Submit
-                </Link>
+                </button>
               </td>
             </tr>
           </tbody>

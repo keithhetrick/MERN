@@ -1,21 +1,15 @@
 const Authors = require("../models/authors.model");
 
-// const createNewAuthor = (req, res) => {
-//   res.send("get sent here");
-// };
-
-// module.exports = { createNewAuthor };
-
 module.exports.showAllAuthors = (req, res) => {
   Authors.find()
     .then((allAuthors) => res.json(allAuthors))
-    .catch((err) => res.json(err));
+    .catch((err) => res.status(400).json(err));
 };
 
 module.exports.addAuthor = (req, res) => {
   Authors.create(req.body)
     .then((newAuthor) => res.json(newAuthor))
-    .catch((err) => res.json(err));
+    .catch((err) => res.status(400).json(err));
 };
 
 module.exports.findOneAuthor = (req, res) => {
@@ -24,7 +18,7 @@ module.exports.findOneAuthor = (req, res) => {
       res.json(findAuthor);
       console.log(findAuthor);
     })
-    .catch((err) => res.json(err));
+    .catch((err) => res.status(400).json(err));
 };
 
 module.exports.editAuthor = (req, res) => {
@@ -36,7 +30,7 @@ module.exports.editAuthor = (req, res) => {
       res.json(editAuthor);
       console.log(editAuthor);
     })
-    .catch((err) => res.json(err));
+    .catch((err) => res.status(400).json(err));
 };
 
 module.exports.deleteAuthor = (req, res) => {
@@ -45,12 +39,5 @@ module.exports.deleteAuthor = (req, res) => {
       res.json(deleteAuthor);
       console.log(deleteAuthor);
     })
-    .catch((err) => res.json(err));
+    .catch((err) => res.status(400).json(err));
 };
-
-// module.exports = {
-//   showAllAuthors,
-//   addAuthor,
-//   editAuthor,
-//   deleteAuthor,
-// };

@@ -6,7 +6,7 @@ import EditAuthor from "./components/EditAuthor";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App container">
       <h1 style={{ height: "100%", width: "50%", display: "inline-flex" }}>
         Favorite authors
       </h1>
