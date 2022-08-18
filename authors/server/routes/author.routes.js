@@ -1,15 +1,9 @@
-const AuthorsController = require("../controllers/authors.controller");
-const express = require("express");
-const router = express.Router();
-
-router.get("/", (req, res) => {
-  res.send("Hello World");
-});
+const authorsController = require("../controllers/authors.controller");
 
 module.exports = (app) => {
-  app.get("/", AuthorsController.index);
-  app.get("/", AuthorsController.showAllAuthors);
-  app.post("/new", AuthorsController.addAuthor);
-  app.put("/edit/:id", AuthorsController.editAuthor);
-  app.delete("/", AuthorsController.deleteAuthor);
+  app.post("/", authorsController.addAuthor);
+  app.get("/", authorsController.showAllAuthors);
+  app.get("/:id", authorsController.findOneAuthor);
+  app.put("/edit/:id", authorsController.editAuthor);
+  app.delete("/:id", authorsController.deleteAuthor);
 };

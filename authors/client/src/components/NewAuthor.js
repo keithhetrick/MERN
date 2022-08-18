@@ -1,22 +1,24 @@
-// import axios from "axios";
+import axios from "axios";
 import React, { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
 const NewAuthor = () => {
   const [author, setAuthor] = useState("");
+  const [error, setError] = useState({});
 
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
-    e.preventDefault
-      // axios
-      .post("http://localhost:8000/author")
+    e.preventDefault();
+    axios
+      .post("http://localhost:8000/", { author })
       .then((res) => {
         console.log(res.data);
         navigate("/");
       })
       .catch((err) => {
         console.log(err);
+        setError(err);
       });
   };
 
@@ -32,13 +34,31 @@ const NewAuthor = () => {
       </section>
       <form onSubmit={handleSubmit}>
         <table
-          style={{ height: "100%", width: "50%", display: "inline-table" }}
-          className="table table-bordered"
+          style={{
+            height: "100%",
+            width: "50%",
+            display: "inline-table",
+            border: "solid",
+            borderColor: "lightgrey",
+          }}
         >
-          <caption className="table caption-top">Edit this author:</caption>
+          <caption
+            style={{
+              color: "blue",
+            }}
+            className="table caption-top"
+          >
+            Edit this author:
+          </caption>
           <thead>
             <tr>
-              <th>Name:</th>
+              <th
+                style={{
+                  color: "grey",
+                }}
+              >
+                Name:
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -50,11 +70,12 @@ const NewAuthor = () => {
                   value={author}
                 />
               </td>
+              {error.author ? <p>{error.author.message}</p> : null}
             </tr>
             <tr>
               <td>
                 <Link
-                  style={{ marginLeft: 5 }}
+                  style={{ margin: 5 }}
                   className="btn btn-primary"
                   href="#"
                   role="button"

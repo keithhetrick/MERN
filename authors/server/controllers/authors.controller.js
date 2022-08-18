@@ -1,10 +1,10 @@
-const Authors = require("../model/authors.model");
+const Authors = require("../models/authors.model");
 
-module.exports.index = (req, res) => {
-  res.json({
-    message: "Back-end database connection working",
-  });
-};
+// const createNewAuthor = (req, res) => {
+//   res.send("get sent here");
+// };
+
+// module.exports = { createNewAuthor };
 
 module.exports.showAllAuthors = (req, res) => {
   Authors.find()
@@ -15,6 +15,15 @@ module.exports.showAllAuthors = (req, res) => {
 module.exports.addAuthor = (req, res) => {
   Authors.create(req.body)
     .then((newAuthor) => res.json(newAuthor))
+    .catch((err) => res.json(err));
+};
+
+module.exports.findOneAuthor = (req, res) => {
+  Authors.findOne({ _id: req.params.id })
+    .then((findAuthor) => {
+      res.json(findAuthor);
+      console.log(findAuthor);
+    })
     .catch((err) => res.json(err));
 };
 
@@ -38,3 +47,10 @@ module.exports.deleteAuthor = (req, res) => {
     })
     .catch((err) => res.json(err));
 };
+
+// module.exports = {
+//   showAllAuthors,
+//   addAuthor,
+//   editAuthor,
+//   deleteAuthor,
+// };

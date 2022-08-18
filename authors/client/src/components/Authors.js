@@ -1,7 +1,37 @@
-import React from "react";
+import axios from "axios";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Authors = () => {
+  const [showAuthors, setShowAuthors] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/")
+      .then((res) => {
+        console.log(res.data);
+        setShowAuthors(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:8000/${id}`)
+      .then((res) => {
+        console.log(res);
+        const currentAuthors = showAuthors.filter(() => {
+          // return author._id !== id;
+        });
+        setShowAuthors(currentAuthors);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <div>
       <section>
@@ -16,40 +46,65 @@ const Authors = () => {
         <main>
           <form>
             <table
-              style={{ height: "100%", width: "50%", display: "inline-table" }}
-              className="table"
+              style={{
+                height: "100%",
+                width: "50%",
+                display: "inline-table",
+                border: "solid",
+              }}
+              className="table table-striped"
             >
-              <caption className="table caption-top">
+              <caption
+                style={{
+                  color: "blue",
+                }}
+                className="table caption-top"
+              >
                 We have quotes by:
               </caption>
-              <thead className="table table-active table-bordered">
+              <thead
+                style={{
+                  color: "white",
+                  backgroundColor: "lightgrey",
+                }}
+                className="table table-active table-bordered"
+              >
                 <tr>
                   <th scope="col">Author</th>
                   <th scope="col">Actions avaliable</th>
                 </tr>
               </thead>
               <tbody className="table-group-divider">
-                <tr>
-                  <td></td>
-                  <td>
-                    <Link
-                      className="btn btn-secondary"
-                      href="#"
-                      role="button"
-                      to={"/edit/:id"}
+                {showAuthors.map((author, i) => (
+                  <tr key={author._id}>
+                    <td
+                      style={{
+                        verticalAlign: "middle",
+                      }}
                     >
-                      Edit
-                    </Link>
-                    <button
-                      style={{ marginLeft: 5 }}
-                      className="btn btn-secondary"
-                      type="submit"
-                      name="delete"
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
+                      {author.name}
+                    </td>
+                    <td>
+                      <Link
+                        className="btn btn-secondary"
+                        href="#"
+                        role="button"
+                        to={"/edit/:id"}
+                      >
+                        Edit
+                      </Link>
+                      <button
+                        onClick={() => handleDelete(author._id)}
+                        style={{ marginLeft: 5 }}
+                        className="btn btn-secondary"
+                        type="submit"
+                        name="delete"
+                      >
+                        Delete
+                      </button>
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </form>

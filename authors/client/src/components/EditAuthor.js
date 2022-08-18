@@ -8,7 +8,7 @@ const EditAuthor = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:8000/author/${id}`)
+      .get(`http://localhost:8000/${id}`)
       .then((res) => {
         console.log(res.data);
       })
@@ -21,7 +21,7 @@ const EditAuthor = () => {
   const handleSubmit = (e) => {
     e.preventDefault
       // axios
-      .putt("http://localhost:8000/author")
+      .put("http://localhost:8000/")
       .then((res) => {
         console.log(res.data);
       })
@@ -42,12 +42,28 @@ const EditAuthor = () => {
       </section>
       <form onSubmit={handleSubmit}>
         <table
-          style={{ height: "100%", width: "50%", display: "inline-table" }}
-          className="table table-bordered"
+          style={{
+            height: "100%",
+            width: "50%",
+            display: "inline-table",
+            border: "solid",
+            borderColor: "lightgrey",
+          }}
         >
-          <caption className="table caption-top">Edit this author:</caption>
+          <caption
+            style={{
+              color: "blue",
+            }}
+            className="table caption-top"
+          >
+            Edit this author:
+          </caption>
           <thead>
-            <tr>
+            <tr
+              style={{
+                color: "grey",
+              }}
+            >
               <th>Name:</th>
             </tr>
           </thead>
@@ -64,7 +80,7 @@ const EditAuthor = () => {
             <tr>
               <td>
                 <Link
-                  style={{ marginLeft: 5 }}
+                  style={{ margin: 5 }}
                   className="btn btn-primary"
                   href="#"
                   role="button"
