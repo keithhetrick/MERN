@@ -18,7 +18,6 @@ const NewAuthor = () => {
         navigate("/");
       })
       .catch((err) => {
-        // console.log(err.response.data);
         console.log(err.response.data.errors.name.message);
         setError(err.response.data.errors);
       });
@@ -71,7 +70,7 @@ const NewAuthor = () => {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
-              {error.name ? <p>{error.name.message}</p> : null}
+                {error.name ? <p>{error.name.message}</p> : null}
               </td>
             </tr>
             <tr>

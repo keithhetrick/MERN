@@ -10,11 +10,15 @@ const Authors = () => {
       .get("http://localhost:8000/")
       .then((res) => {
         console.log(res.data);
+        res.data.sort((a, b) =>
+          a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+        );
         setShowAuthors(res.data);
       })
       .catch((err) => {
         console.log(err);
       });
+    // eslint-disable-next-line
   }, []);
 
   const handleDelete = (id) => {

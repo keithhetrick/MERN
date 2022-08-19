@@ -6,6 +6,8 @@ const EditAuthor = () => {
   const { id } = useParams();
   const [name, setName] = useState("");
   const [error, setError] = useState({});
+  const [noAuthorFound, setNoAuthorFound] = useState("");
+
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,6 +20,7 @@ const EditAuthor = () => {
       })
       .catch((err) => {
         console.log(err);
+        setNoAuthorFound(`No Author found at this ID`);
       });
     // eslint-disable-next-line
   }, []);
@@ -39,6 +42,12 @@ const EditAuthor = () => {
   return (
     <div className="container">
       <section>
+        {noAuthorFound ? (
+          <h5>
+            {noAuthorFound} <br></br>
+            <Link to="/new">Click here to add author</Link>
+          </h5>
+        ) : null}
         <Link
           style={{ height: "100%", width: "50%", display: "inline-flex" }}
           to={"/"}
