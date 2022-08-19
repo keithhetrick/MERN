@@ -55,67 +55,69 @@ const EditAuthor = () => {
           Home
         </Link>
       </section>
-      <form onSubmit={handleSubmit}>
-        <table
-          style={{
-            height: "100%",
-            width: "50%",
-            display: "inline-table",
-            border: "solid",
-            borderColor: "lightgrey",
-          }}
-        >
-          <caption
+      <section>
+        <form onSubmit={handleSubmit}>
+          <table
             style={{
-              color: "blue",
+              height: "100%",
+              width: "50%",
+              display: "inline-table",
+              border: "solid",
+              borderColor: "lightgrey",
             }}
-            className="table caption-top"
           >
-            Edit this author:
-          </caption>
-          <thead>
-            <tr
+            <caption
               style={{
-                color: "grey",
+                color: "blue",
               }}
+              className="table caption-top"
             >
-              <th>Name:</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <input
-                  type="text"
-                  onChange={(e) => setName(e.target.value)}
-                  value={name}
-                />
-                {error.name ? <p>{error.name.message}</p> : null}
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <Link
-                  style={{ margin: 5 }}
-                  className="btn btn-primary"
-                  href="#"
-                  role="button"
-                  to={"/"}
-                >
-                  Cancel
-                </Link>
-                <button
-                  style={{ marginLeft: 5 }}
-                  className="btn btn-primary"
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </form>
+              Edit this author:
+            </caption>
+            <thead>
+              <tr
+                style={{
+                  color: "grey",
+                }}
+              >
+                <th>Name:</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <input
+                    type="text"
+                    onChange={(e) => setName(e.target.value)}
+                    value={name}
+                  />
+                  {error.name ? <p>{error.name.message}</p> : null}
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <Link
+                    style={{ margin: 5 }}
+                    className="btn btn-primary"
+                    href="#"
+                    role="button"
+                    to={"/"}
+                  >
+                    Cancel
+                  </Link>
+                  <button
+                    style={{ marginLeft: 5 }}
+                    className="btn btn-primary"
+                    type="submit"
+                  >
+                    Submit
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </section>
     </div>
   );
 };

@@ -47,72 +47,70 @@ const Authors = () => {
         </Link>
       </section>
       <section>
-        <main>
-          <form>
-            <table
+        <form>
+          <table
+            style={{
+              height: "100%",
+              width: "50%",
+              display: "inline-table",
+              border: "solid",
+            }}
+            className="table table-striped"
+          >
+            <caption
               style={{
-                height: "100%",
-                width: "50%",
-                display: "inline-table",
-                border: "solid",
+                color: "blue",
               }}
-              className="table table-striped"
+              className="table caption-top"
             >
-              <caption
-                style={{
-                  color: "blue",
-                }}
-                className="table caption-top"
-              >
-                We have quotes by:
-              </caption>
-              <thead
-                style={{
-                  color: "white",
-                  backgroundColor: "lightgrey",
-                }}
-                className="table table-active table-bordered"
-              >
-                <tr>
-                  <th scope="col">Author</th>
-                  <th scope="col">Actions avaliable</th>
-                </tr>
-              </thead>
-              <tbody className="table-group-divider">
-                {showAuthors.map((author, i) => (
-                  <tr key={author._id}>
-                    <td
-                      style={{
-                        verticalAlign: "middle",
-                      }}
+              We have quotes by:
+            </caption>
+            <thead
+              style={{
+                color: "white",
+                backgroundColor: "lightgrey",
+              }}
+              className="table table-active table-bordered"
+            >
+              <tr>
+                <th scope="col">Author</th>
+                <th scope="col">Actions avaliable</th>
+              </tr>
+            </thead>
+            <tbody className="table-group-divider">
+              {showAuthors.map((author, i) => (
+                <tr key={author._id}>
+                  <td
+                    style={{
+                      verticalAlign: "middle",
+                    }}
+                  >
+                    {author.name}
+                  </td>
+                  <td>
+                    <Link
+                      className="btn btn-secondary"
+                      href="#"
+                      role="button"
+                      to={`/edit/${author._id}`}
                     >
-                      {author.name}
-                    </td>
-                    <td>
-                      <Link
-                        className="btn btn-secondary"
-                        href="#"
-                        role="button"
-                        to={`/edit/${author._id}`}
-                      >
-                        Edit
-                      </Link>
-                      <button
-                        onClick={() => handleDelete(author._id)}
-                        style={{ marginLeft: 5 }}
-                        className="btn btn-secondary"
-                        type="submit"
-                        name="delete"
-                      >
-                        Delete
-                      </button>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </form>
-        </main>
+                      Edit
+                    </Link>
+                    <button
+                      onClick={() => handleDelete(author._id)}
+                      style={{ marginLeft: 5 }}
+                      className="btn btn-secondary"
+                      type="submit"
+                      name="delete"
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </form>
       </section>
     </div>
   );
