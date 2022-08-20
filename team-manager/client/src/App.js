@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Router } from "react-router-dom";
+import ListPlayers from "./components/ListPlayers";
+import AddPlayer from "./components/AddPlayer";
+import { useState } from "react";
+import PlayerStatus from "./components/PlayerStatus";
+import Nav from "./components/Nav";
 
 function App() {
+  const [listPageIsActive, setListPageIsActive] = useState(true);
+  const [managePlayerStatusTabIsActive, setManagePlayerStatusTabIsActive] =
+    useState(false);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Nav
+        managePlayerStatusTabIsActive={managePlayerStatusTabIsActive}
+        setManagePlayerStatusTabIsActive={setManagePlayerStatusTabIsActive}
+      />
+      <Router>
+        <ListPlayers
+          path="/players/list"
+          default
+          listPageIsActive={listPageIsActive}
+          setListPageIsActive={setListPageIsActive}
+          setManagePlayerStatusTabIsActive={setManagePlayerStatusTabIsActive}
+        />
+        <AddPlayer
+          path="/players/addplayer"
+          listPageIsActive={listPageIsActive}
+          setListPageIsActive={setListPageIsActive}
+          setManagePlayerStatusTabIsActive={setManagePlayerStatusTabIsActive}
+        />
+        <PlayerStatus
+          path="/status/game/:gameId"
+          setManagePlayerStatusTabIsActive={setManagePlayerStatusTabIsActive}
+        />
+      </Router>
     </div>
   );
 }
